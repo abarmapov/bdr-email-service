@@ -106,3 +106,27 @@ export default async function handler(req, res) {
 module.exports = (req, res) => {
   res.status(200).json({ message: "API is working!" });
 };
+
+const sgMail = require("@sendgrid/mail");
+
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
+module.exports = async function handler(req, res) {
+  try {
+    console.log("Request received", req.body);
+
+    const msg = {
+      to: req.body.to, // Change this to the recipient's email
+      from: "your-email@domain.com", // Use a verified email from SendGrid
+      subject: "Test Email",
+      text: "This is a test email from SendGrid!",
+    };
+
+    await sgMail.send(msg);
+
+    res.status(200).json({ message: "Email sent successfully!" });
+  } catch (error) {
+    console.error("Error sending email:", error);
+    res.status(500).json({ error: "Failed to send email" });
+  }
+};
