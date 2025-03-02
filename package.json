@@ -1,11 +1,23 @@
-﻿{
-  "name": "bdr-email-service",
+{
+  "name": "bdr-email.service",
   "version": "1.0.0",
-  "type": "module",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "vercel dev"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abarmapov/bdr-email-service.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abarmapov/bdr-email-service/issues"
+  },
+  "homepage": "https://github.com/abarmapov/bdr-email-service#readme",
   "dependencies": {
-    "@sendgrid/mail": "^7.4.7"
+    "@sendgrid/mail": "^8.1.4"
   }
 }
